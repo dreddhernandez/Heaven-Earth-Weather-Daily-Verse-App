@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Heaven & Earth — Weather + Daily Word</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="sky-canvas"></div>
+
+<div id="app">
+  <header>
+    <span class="brand">Heaven &amp; Earth</span>
+    <span id="clock"></span>
+  </header>
+
+  <div class="main-layout">
+    <div class="left-content">
+      <!-- API Key Setup -->
+      <div id="api-setup">
+        <div class="key-banner">
+          <div class="key-eyebrow">🔑 OpenWeatherMap API Key Required</div>
+          <div class="key-hint">
+            Your key may be new — new keys take <strong style="color:var(--text-main)">up to 2 hours</strong> to activate after registering at
+            <a href="https://openweathermap.org/api" target="_blank">openweathermap.org</a>.
+            Once active, paste it below. It will be saved in your browser.
+          </div>
+          <div class="key-row">
+            <input id="apikey-input" type="text" placeholder="e.g. 40274237292266bd8b7b53f81cce1650" autocomplete="off"/>
+            <button id="apikey-save">Save &amp; Try</button>
+          </div>
+          <div id="key-status">✓ Key saved! Loading weather…</div>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <div class="search-row">
+          <input id="city-input" type="text" placeholder="Search a city… e.g. Manila" autocomplete="off"/>
+          <button id="geo-btn" title="Use my location">📍</button>
+          <button id="search-btn">Search</button>
+        </div>
+        <div id="error-msg"></div>
+      </div>
+      <div id="change-key">Change API key</div>
+
+      <!-- Weather -->
+      <div id="weather-section">
+        <div class="weather-hero fade-in">
+          <div class="weather-left">
+            <div class="city-name" id="city-name">—</div>
+            <div class="country" id="country"></div>
+            <div id="weather-icon" style="font-size:3.5rem;margin-top:0.5rem">🌤</div>
+            <div class="condition" id="condition"></div>
+          </div>
+          <div class="weather-right">
+            <div class="temp" id="temp">—<sup>°C</sup></div>
+            <div class="feels" id="feels"></div>
+          </div>
+        </div>
+        <div class="stats-grid fade-in">
+          <div class="stat-card">
+            <div class="stat-label">Humidity</div>
+            <div class="stat-value" id="humidity">—<span class="stat-unit">%</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Wind</div>
+            <div class="stat-value" id="wind">—<span class="stat-unit">km/h</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Visibility</div>
+            <div class="stat-value" id="visibility">—<span class="stat-unit">km</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Pressure</div>
+            <div class="stat-value" id="pressure">—<span class="stat-unit">hPa</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Sunrise</div>
+            <div class="stat-value" id="sunrise" style="font-size:1.2rem">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Sunset</div>
+            <div class="stat-value" id="sunset" style="font-size:1.2rem">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bible Verse -->
+    <div id="verse-section">
+      <div class="verse-card fade-in">
+        <div class="verse-eyebrow">✦ Daily Word</div>
+        <div id="verse-text"><span class="loader"></span> Loading today's verse…</div>
+        <div id="verse-ref"></div>
+      </div>
+
+      <footer>
+        Weather · OpenWeatherMap &nbsp;|&nbsp; Scripture · OurManna
+        <div class="trademark">
+          © Crafted by <a href="https://www.linkedin.com/in/dredd-hernandez-work/" target="_blank">Dredd Xander Hernandez</a> 
+          &nbsp;•&nbsp; 
+          <a href="https://dreddhernandez.github.io/portfolio-dx/" target="_blank">View Portfolio</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+</div> <!-- End #app -->
+
+<script src="script.js"></script>
+</body>
+</html>
